@@ -1,9 +1,11 @@
 # Compal
 
+Find mechanichal keyboard parts with Compal.
+
 ## Table of Content
 
--   [Installation](#installation)
--   [Usage](#usage)
+- [Installation](#installation)
+- [Usage](#usage)
 
 ## Installation
 
@@ -11,5 +13,4 @@
 
 ## Usage
 
-1. `npm run build`
-2. `npm start`
+`npm run dev`

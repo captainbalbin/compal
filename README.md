@@ -1,6 +1,6 @@
 # Compal
 
-Find mechanichal keyboard parts with Compal.
+Find mechanical keyboard parts with Compal.
 
 ## Table of Content
 

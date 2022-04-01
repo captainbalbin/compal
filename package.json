@@ -1,49 +1,49 @@
 {
-	"name": "compal",
-	"version": "0.1.0",
-	"private": true,
-	"description": "NextJS app using TailwindCSS",
-	"keywords": [
-		"next",
-		"tailwind"
-	],
-	"homepage": "https://github.com/captainbalbin/compal#readme",
-	"bugs": {
-		"url": "https://github.com/captainbalbin/compal/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/captainbalbin/compal.git"
-	},
-	"license": "MIT",
-	"author": "captainbalbin",
-	"main": "./pages/_app.js",
-	"scripts": {
-		"build": "next build",
-		"dev": "next",
-		"lint": "next lint",
-		"start": "next start",
-		"prepare": "husky install"
-	},
-	"dependencies": {
-		"dotenv": "^14.3.2",
-		"mongoose": "^6.1.8",
-		"next": "^12.0.9",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2"
-	},
-	"devDependencies": {
-		"@fullhuman/postcss-purgecss": "^4.1.3",
-		"autoprefixer": "^10.4.2",
-		"eslint": "^8.8.0",
-		"eslint-config-next": "12.0.9",
-		"husky": "^7.0.4",
-		"lint-staged": "^12.3.2",
-		"postcss-preset-env": "^7.2.3",
-		"prettier": "^2.5.1",
-		"tailwindcss": "^3.0.18"
-	},
-	"lint-staged": {
-		"*.{js, jsx}": "eslint --fix"
-	}
+  "name": "compal",
+  "version": "0.1.0",
+  "private": true,
+  "description": "NextJS app using TailwindCSS",
+  "keywords": [
+    "next",
+    "tailwind"
+  ],
+  "homepage": "https://github.com/captainbalbin/compal#readme",
+  "bugs": {
+    "url": "https://github.com/captainbalbin/compal/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/captainbalbin/compal.git"
+  },
+  "license": "MIT",
+  "author": "captainbalbin",
+  "main": "./pages/_app.js",
+  "scripts": {
+    "build": "next build",
+    "dev": "next",
+    "lint": "next lint",
+    "start": "next start",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "dotenv": "^14.3.2",
+    "mongoose": "^6.1.8",
+    "next": "^12.0.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^4.1.3",
+    "autoprefixer": "^10.4.2",
+    "eslint": "^8.8.0",
+    "eslint-config-next": "12.0.9",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.2",
+    "postcss-preset-env": "^7.2.3",
+    "prettier": "^2.6.0",
+    "tailwindcss": "^3.0.18"
+  },
+  "lint-staged": {
+    "*.{js, jsx}": "eslint --fix"
+  }
 }

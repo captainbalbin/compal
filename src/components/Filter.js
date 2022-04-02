@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-const Filter = ({ filterType }) => {
-  const filterDetails = {
+const Filter = ({ filterType, isVisible }) => {
+  let filterDetails = {
     icon: 'a',
     name: 'b',
     url: 'c',
@@ -39,12 +39,13 @@ const Filter = ({ filterType }) => {
       break
   }
 
+  const style = `flex gap-4 p-4 h-32 bg-zinc-800 shadow-md text-zinc-200 rounded-md cursor-pointer hover:opacity-70 ${
+    isVisible ? 'cursor-default hover:opacity-100' : ''
+  }`
+
   return (
     <Link href={filterDetails.url} passHref>
-      <div
-        tabIndex={0}
-        className="flex gap-4 p-4 h-32 bg-zinc-800 shadow-md text-zinc-200 rounded-md cursor-pointer hover:opacity-70"
-      >
+      <div tabIndex={0} className={style}>
         <p>{filterDetails.icon}</p>
         <h1>{filterDetails.name}</h1>
       </div>

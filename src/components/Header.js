@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import SearchBar from '../SearchBar'
-import Nav from '../Nav'
+import SearchBar from './SearchBar'
+import Nav from './Nav'
 
 const Header = () => {
   return (

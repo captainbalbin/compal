@@ -5,7 +5,7 @@ import Nav from '../Nav'
 
 const Header = () => {
   return (
-    <div className="w-full h-16 flex items-center justify-center bg-zinc-800">
+    <div className="w-full h-16 flex items-center justify-center bg-zinc-900">
       <Link href="/">
         <a className="hover:underline">
           <Image

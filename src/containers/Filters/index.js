@@ -1,10 +1,16 @@
 import Filter from '../../components/Filter'
 
-const Filters = () => {
+const Filters = ({ isBlurred }) => {
+  const styling = `grid grid-cols-2 gap-4 w-full pt-16 ${
+    isBlurred ? 'blur-sm' : ''
+  }`
+
   return (
-    <div className="grid grid-rows-2 grid-flow-col gap-4 bg-red-500 w-full">
-      <Filter filterType="switch" />
-      <Filter filterType="deskmat" />
+    <div className={styling}>
+      <Filter filterType="switches" />
+      <Filter filterType="deskmats" />
+      <Filter filterType="keycaps" />
+      <Filter filterType="parts" />
     </div>
   )
 }

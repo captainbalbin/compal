@@ -1,10 +1,9 @@
+import cleanAndTrim from './cleanStrings'
+
 const filterData = (data, query) => {
-  const filteredData = data.filter((result) =>
-    result.name
-      .replace(/ /g, '')
-      .toLowerCase()
-      .includes(query.replace(/ /g, '').toLowerCase())
-  )
+  const filteredData = data.filter((result) => {
+    return cleanAndTrim(result.name).includes(cleanAndTrim(query))
+  })
 
   return filteredData
 }

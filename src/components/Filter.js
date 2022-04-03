@@ -43,9 +43,11 @@ const Filter = ({ filterType, isVisible }) => {
     isVisible ? 'cursor-default hover:opacity-100' : ''
   }`
 
+  const hasTabIndex = !isVisible ? { tabIndex: 0 } : {}
+
   return (
     <Link href={filterDetails.url} passHref>
-      <div tabIndex={0} className={style}>
+      <div {...hasTabIndex} className={style}>
         <p>{filterDetails.icon}</p>
         <h1>{filterDetails.name}</h1>
       </div>

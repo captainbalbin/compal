@@ -10,7 +10,7 @@ const Content = () => {
   }
 
   return (
-    <div className="w-1/2 h-1/2 mb-auto flex flex-col items-center justify-center">
+    <div className="w-1/2 max-w-2xl h-1/2 mb-auto flex flex-col items-center justify-center">
       <SearchBar
         setIsDropdownOpen={toggleBgBlur}
         isDropdownOpen={isDropdownOpen}

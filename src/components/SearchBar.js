@@ -3,8 +3,8 @@ import ListItem from './ListItem'
 import filterData from '../utils/filterData'
 
 const testData = [
-  { id: 1, type: 'switches', name: 'a name', url: 'abc123' },
-  { id: 2, type: 'switches', name: 'b name', url: 'abc1234' },
+  { id: 1, type: 'switches', name: 'x name', url: 'abc123' },
+  { id: 2, type: 'switches', name: 'aa name', url: 'abc1234' },
   { id: 3, type: 'deskmats', name: 'c name', url: 'abcd1234' },
   { id: 4, type: 'parts', name: 'd name', url: 'abcd12345' },
 ]
@@ -18,12 +18,13 @@ const SearchBar = ({ isDropdownOpen, setIsDropdownOpen }) => {
     (event) => {
       if (event.key === 'Escape' && isDropdownOpen) setIsDropdownOpen(false)
 
-      if (
-        !ref.current.contains(event.target) &&
-        event.target.id !== 'list-result' &&
-        isDropdownOpen
-      )
-        setIsDropdownOpen(false)
+      // if (
+      //   !ref.current.contains(event.target) &&
+      //   event.target.id !== 'list-result' &&
+      //   isDropdownOpen &&
+      //   !!results.length
+      // )
+      //   setIsDropdownOpen(false)
     },
     [isDropdownOpen, setIsDropdownOpen]
   )
@@ -42,12 +43,12 @@ const SearchBar = ({ isDropdownOpen, setIsDropdownOpen }) => {
 
   useEffect(() => {
     window.addEventListener('keydown', listener)
-    window.addEventListener('mousedown', listener)
-    window.addEventListener('touchstart', listener)
+    // window.addEventListener('mousedown', listener)
+    // window.addEventListener('touchstart', listener)
 
     return () => {
-      window.removeEventListener('mousedown', listener)
-      window.removeEventListener('touchstart', listener)
+      // window.removeEventListener('mousedown', listener)
+      // window.removeEventListener('touchstart', listener)
       window.removeEventListener('keydown', listener)
     }
   }, [ref, listener])
@@ -64,14 +65,15 @@ const SearchBar = ({ isDropdownOpen, setIsDropdownOpen }) => {
         type="text"
         placeholder="Search for parts"
         ref={ref}
+        tabIndex={1}
         onChange={(e) => handleOnChange(e)}
         onFocus={() => handleFocus()}
       />
       {isDropdownOpen && (
-        <div className="absolute flex flex-col bg-zinc-800 w-full h-128 mt-2 rounded-md z-10 tracking-wide shadow-md">
-          {results.map((result) => (
-            <ListItem key={result.id} result={result} />
-          ))}
+        <div className="absolute flex flex-col bg-zinc-800 w-full h-128 mt-2 rounded-md z-50 tracking-wide shadow-md">
+          {results.map((result, i) => {
+            return <ListItem key={result.id} tab={i + 1} result={result} />
+          })}
         </div>
       )}
     </div>

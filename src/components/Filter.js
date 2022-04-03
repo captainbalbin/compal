@@ -43,7 +43,7 @@ const Filter = ({ filterType, isVisible }) => {
     isVisible ? 'cursor-default hover:opacity-100' : ''
   }`
 
-  const hasTabIndex = !isVisible ? { tabIndex: 0 } : {}
+  const hasTabIndex = !isVisible ? { tabIndex: 100 } : {}
 
   return (
     <Link href={filterDetails.url} passHref>

@@ -60,7 +60,7 @@ const SearchBar = ({ isDropdownOpen, setIsDropdownOpen }) => {
   return (
     <div className="w-full gap-4 text-zinc-300 relative">
       <input
-        className="w-full h-14 mb-auto bg-zinc-800 focus:outline-none focus:placeholder:text-zinc-600 p-4 rounded-md text-lg tracking-wide shadow-md placeholder:font-light placeholder:text-zinc-400"
+        className="w-full h-14 mb-auto bg-zinc-800 focus:outline-none focus:placeholder:text-zinc-600 p-4 rounded-md text-lg tracking-wide shadow-md placeholder:font-normal placeholder:text-zinc-400"
         id="search"
         type="text"
         placeholder="Search for parts"

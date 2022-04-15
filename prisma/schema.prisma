@@ -7,15 +7,128 @@ generator client {
     provider = "prisma-client-js"
 }
 
+model Store {
+    id         Int          @id @unique @default(autoincrement())
+    name       String       @unique
+    url        String       @unique
+    switch     Switch[]
+    deskmat    Deskmat[]
+    keycap     Keycap[]
+    spring     Spring[]
+    switchFilm SwitchFilm[]
+    stabilizer Stabilizer[]
+    lube       Lube[]
+}
+
 model Switch {
-    id               Int           @id @default(autoincrement())
-    name             String
-    manufacturer     Manufacturer? @relation(fields: [manufacturerName], references: [name])
-    manufacturerName String?
+    id             Int          @id @default(autoincrement())
+    name           String
+    manufacturer   Manufacturer @relation(fields: [manufacturerId], references: [id])
+    url            String
+    manufacturerId Int
+    price          Decimal
+    type           String /// Spring type, one of "linear", "tactile", or "clicky"
+    spring         Spring[]
+    store          Store[]
+    ledCompatible  Boolean /// Whether this switch is compatible with LED lighting
+    topHousing     String? /// Top housing material
+    bottomHousing  String? /// Bottom housing material
+    stem           String? /// Steam material and/or type
+    inStock        Boolean
+    factoryLube    Boolean?
 }
 
 model Manufacturer {
-    id       Int      @id @default(autoincrement())
-    name     String   @unique
-    switches Switch[]
+    id         Int          @id @default(autoincrement())
+    name       String       @unique
+    url        String?      @unique
+    switches   Switch[]
+    keycap     Keycap[]
+    deskmat    Deskmat[]
+    spring     Spring[]
+    switchFilm SwitchFilm[]
+    stabilizer Stabilizer[]
+    lube       Lube[]
+}
+
+model Deskmat {
+    id             Int           @id @default(autoincrement())
+    name           String
+    url            String        @unique
+    store          Store         @relation(fields: [storeId], references: [id])
+    storeId        Int
+    Manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
+    manufacturerId Int?
+    thickness      Int?
+    price          Decimal
+    inStock        Boolean
+}
+
+model Keycap {
+    id             Int           @id @default(autoincrement())
+    name           String
+    url            String        @unique
+    manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
+    manufacturerId Int?
+    Store          Store[]
+    material       String /// Material of the keycap, either "ABS" or "PBT"
+    price          Decimal
+    layoutSupport  String? /// Which layouts the keycaps set supports
+    inStock        Boolean
+}
+
+model Spring {
+    id             Int           @id @default(autoincrement())
+    url            String        @unique
+    name           String
+    type           String
+    travelDistance Int? /// Distance the spring travels in mm
+    actuationForce Int? /// Force the spring acts in grams
+    bottomOut      Int? /// Bottom out force in grams
+    Switch         Switch[]
+    price          Decimal
+    inStock        Boolean
+    Manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
+    manufacturerId Int?
+    Store          Store?        @relation(fields: [storeId], references: [id])
+    storeId        Int?
+}
+
+model SwitchFilm {
+    id             Int           @id @default(autoincrement())
+    url            String
+    name           String
+    price          Decimal
+    inStock        Boolean
+    Manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
+    manufacturerId Int?
+    Store          Store?        @relation(fields: [storeId], references: [id])
+    storeId        Int?
+}
+
+model Stabilizer {
+    id             Int           @id @default(autoincrement())
+    url            String
+    name           String
+    price          Decimal
+    inStock        Boolean
+    type           String /// Type of stabilizer, one of "screw-in" or "plate-mounted"
+    set            String /// What stabilzers are included, in the format of <amount>x<lenght in U>+<amount>x<length in U>
+    Manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
+    manufacturerId Int?
+    Store          Store?        @relation(fields: [storeId], references: [id])
+    storeId        Int?
+}
+
+model Lube {
+    id             Int           @id @default(autoincrement())
+    url            String
+    name           String
+    price          Decimal
+    volume         Int? /// Volume of the lube in ml or g
+    inStock        Boolean
+    Manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
+    manufacturerId Int?
+    Store          Store?        @relation(fields: [storeId], references: [id])
+    storeId        Int?
 }

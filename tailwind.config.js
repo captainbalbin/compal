@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      body: ['"Inter"'],
+      body: ['"Fira Sans"', 'sans-serif'],
+      footer: ['"Cubano"', 'sans-serif'],
     },
   },
   plugins: [],

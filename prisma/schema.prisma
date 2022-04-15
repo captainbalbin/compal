@@ -1,0 +1,21 @@
+datasource db {
+    provider = "sqlite"
+    url      = "file:dev.db"
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model Switch {
+    id               Int           @id @default(autoincrement())
+    name             String
+    manufacturer     Manufacturer? @relation(fields: [manufacturerName], references: [name])
+    manufacturerName String?
+}
+
+model Manufacturer {
+    id       Int      @id @default(autoincrement())
+    name     String   @unique
+    switches Switch[]
+}

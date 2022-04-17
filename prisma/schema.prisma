@@ -8,127 +8,114 @@ generator client {
 }
 
 model Store {
-    id         Int          @id @unique @default(autoincrement())
-    name       String       @unique
-    url        String       @unique
-    switch     Switch[]
-    deskmat    Deskmat[]
-    keycap     Keycap[]
-    spring     Spring[]
-    switchFilm SwitchFilm[]
-    stabilizer Stabilizer[]
-    lube       Lube[]
+    id       Int       @id @default(autoincrement())
+    name     String    @unique
+    url      String    @unique
+    img      String    @unique // path for either next js Image or exertnally hosted images (direct links to sites)
+    products Product[]
 }
 
-model Switch {
+model Category {
+    id       Int       @id @default(autoincrement())
+    type     String    @unique
+    products Product[]
+}
+
+model Product {
     id             Int          @id @default(autoincrement())
     name           String
-    manufacturer   Manufacturer @relation(fields: [manufacturerId], references: [id])
-    url            String
+    Category       Category     @relation(fields: [categoryId], references: [id])
+    categoryId     Int
+    Manufacturer   Manufacturer @relation(fields: [manufacturerId], references: [id])
     manufacturerId Int
-    price          Decimal
-    type           String /// Spring type, one of "linear", "tactile", or "clicky"
-    spring         Spring[]
-    store          Store[]
-    ledCompatible  Boolean /// Whether this switch is compatible with LED lighting
-    topHousing     String? /// Top housing material
-    bottomHousing  String? /// Bottom housing material
-    stem           String? /// Steam material and/or type
-    inStock        Boolean
-    factoryLube    Boolean?
+    stores         Store[]
+    variations     Variation[]
 }
 
 model Manufacturer {
-    id         Int          @id @default(autoincrement())
-    name       String       @unique
-    url        String?      @unique
-    switches   Switch[]
-    keycap     Keycap[]
-    deskmat    Deskmat[]
-    spring     Spring[]
-    switchFilm SwitchFilm[]
-    stabilizer Stabilizer[]
-    lube       Lube[]
+    id       Int       @id @default(autoincrement())
+    name     String    @unique
+    url      String?   @unique
+    products Product[]
 }
 
-model Deskmat {
-    id             Int           @id @default(autoincrement())
-    name           String
-    url            String        @unique
-    store          Store         @relation(fields: [storeId], references: [id])
-    storeId        Int
-    Manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
-    manufacturerId Int?
-    thickness      Int?
-    price          Decimal
-    inStock        Boolean
+model Variation {
+    id         Int         @id @default(autoincrement())
+    price      Float
+    url        String      @unique
+    Switch     Switch?
+    Stabilizer Stabilizer?
+    Spring     Spring?
+    Keycap     Keycap?
+    products   Product[]
 }
 
-model Keycap {
-    id             Int           @id @default(autoincrement())
-    name           String
-    url            String        @unique
-    manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
-    manufacturerId Int?
-    Store          Store[]
-    material       String /// Material of the keycap, either "ABS" or "PBT"
-    price          Decimal
-    layoutSupport  String? /// Which layouts the keycaps set supports
-    inStock        Boolean
-}
-
-model Spring {
-    id             Int           @id @default(autoincrement())
-    url            String        @unique
-    name           String
-    type           String
-    travelDistance Int? /// Distance the spring travels in mm
-    actuationForce Int? /// Force the spring acts in grams
-    bottomOut      Int? /// Bottom out force in grams
-    Switch         Switch[]
-    price          Decimal
-    inStock        Boolean
-    Manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
-    manufacturerId Int?
-    Store          Store?        @relation(fields: [storeId], references: [id])
-    storeId        Int?
-}
-
-model SwitchFilm {
-    id             Int           @id @default(autoincrement())
-    url            String
-    name           String
-    price          Decimal
-    inStock        Boolean
-    Manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
-    manufacturerId Int?
-    Store          Store?        @relation(fields: [storeId], references: [id])
-    storeId        Int?
+model Switch {
+    id          Int       @id @default(autoincrement())
+    Weight      Weight[]
+    Material    Material  @relation(fields: [materialId], references: [id])
+    materialId  Int
+    Variation   Variation @relation(fields: [variationId], references: [id])
+    variationId Int       @unique
 }
 
 model Stabilizer {
-    id             Int           @id @default(autoincrement())
-    url            String
-    name           String
-    price          Decimal
-    inStock        Boolean
-    type           String /// Type of stabilizer, one of "screw-in" or "plate-mounted"
-    set            String /// What stabilzers are included, in the format of <amount>x<lenght in U>+<amount>x<length in U>
-    Manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
-    manufacturerId Int?
-    Store          Store?        @relation(fields: [storeId], references: [id])
-    storeId        Int?
+    id          Int       @id @default(autoincrement())
+    Set         Set[]
+    Color       Color[]
+    Variation   Variation @relation(fields: [variationId], references: [id])
+    variationId Int       @unique
 }
 
-model Lube {
-    id             Int           @id @default(autoincrement())
-    url            String
-    name           String
-    price          Decimal
-    volume         Int? /// Volume of the lube in ml or g
-    inStock        Boolean
-    Manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
-    manufacturerId Int?
-    Store          Store?        @relation(fields: [storeId], references: [id])
-    storeId        Int?
+model Spring {
+    id          Int       @id @default(autoincrement())
+    Weight      Weight[]
+    Variation   Variation @relation(fields: [variationId], references: [id])
+    variationId Int       @unique
+}
+
+model Keycap {
+    id          Int       @id @default(autoincrement())
+    Color       Color     @relation(fields: [colorId], references: [id])
+    colorId     Int
+    Variation   Variation @relation(fields: [variationId], references: [id])
+    variationId Int       @unique
+}
+
+model Weight {
+    id        Int      @id @default(autoincrement())
+    actuation Float
+    bottomOut Float
+    Switch    Switch[]
+    Spring    Spring[]
+
+    @@unique([actuation, bottomOut])
+}
+
+model Material {
+    id            Int      @id @default(autoincrement())
+    stem          String
+    topHousing    String
+    bottomHousing String
+    switches      Switch[]
+
+    @@unique([stem, topHousing, bottomHousing])
+}
+
+model Color {
+    id          Int          @id @default(autoincrement())
+    value       String       @unique
+    stabilizers Stabilizer[]
+    keycaps     Keycap[]
+}
+
+model Set {
+    id         Int          @id @default(autoincrement())
+    type       String       @unique
+    Stabilizer Stabilizer[]
+}
+
+model Layout {
+    id    Int    @id @default(autoincrement())
+    value String
 }

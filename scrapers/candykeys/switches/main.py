@@ -26,6 +26,7 @@ class Switch:
     def __init__(self,
                  url='',
                  name='',
+                 desc='',
                  brand='',
                  price='',
                  feedback='',
@@ -34,6 +35,7 @@ class Switch:
                  lubrication=''):
         self.url = url
         self.name = name
+        self.desc = desc
         self.brand = brand
         self.price = price
         self.feedback = feedback
@@ -64,6 +66,19 @@ for idx, item in enumerate(items):
 
         price = soup.find("span", class_="price").getText()
         price = re.search('([0-9,]+).*€', price).group(1)
+
+        # Desc is given in two flavours we try for both here
+        try:
+            desc_parent = soup.find("div", class_="product-short")
+            desc = desc_parent.getText(separator="\n", strip=True)
+        except:
+            try:
+                desc_parent = soup.find("div", class_="description")
+                desc_parent = desc_parent.find("div", class_="content")
+                desc = desc_parent.getText(strip=True)
+            except:
+                print(f'No desc at url: {switch_url}')
+        #########################################################
 
         table = soup.find("div", class_="bx bg-lighter").table
         (tableNames, tableRows) = tableContent(table)
@@ -96,6 +111,7 @@ for idx, item in enumerate(items):
         sw = Switch(
             switch_url,
             name,
+            desc,
             brand,
             price,
             feedback,

@@ -11,7 +11,6 @@ export const getServerSideProps = async ({ params }) => {
 }
 
 const Switches = ({ matchSwitch }) => {
-  console.log('matchSwitch', matchSwitch)
   return (
     <div className="mb-auto flex flex-col items-center h-screen bg-zinc-900 text-zinc-100">
       <Header />

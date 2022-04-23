@@ -12,8 +12,6 @@ const Search = () => {
     query: { q },
   } = router
 
-  console.log('query', q)
-
   return (
     <div className="flex flex-col items-center h-screen bg-zinc-900 text-zinc-100">
       <Header />

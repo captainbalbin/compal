@@ -7,6 +7,13 @@ generator client {
     provider = "prisma-client-js"
 }
 
+model Price {
+    id       Int      @id @default(autoincrement())
+    price    Decimal
+    currency String
+    Switch   Switch[]
+}
+
 model Store {
     id       Int       @id @default(autoincrement())
     name     String    @unique
@@ -57,6 +64,8 @@ model Switch {
     materialId  Int
     Variation   Variation @relation(fields: [variationId], references: [id])
     variationId Int       @unique
+    Price       Price?    @relation(fields: [priceId], references: [id])
+    priceId     Int?
 }
 
 model Stabilizer {

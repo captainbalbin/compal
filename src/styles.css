@@ -3,3 +3,14 @@
 @tailwind components;
 /* purgecss end ignore */
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Proxima Nova';
+    src: url('../public/fonts/proxima-nova/regular.otf');
+  }
+  @font-face {
+    font-family: 'Cubano';
+    src: url('../public/fonts/cubano/regular.otf');
+  }
+}

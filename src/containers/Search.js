@@ -1,5 +1,4 @@
 import { useRef, useEffect, useState, useCallback } from 'react'
-import { useRouter } from 'next/router'
 import ListItem from './ListItem'
 import filterData from '../utils/filterData'
 import SearchButton from './SearchButton'
@@ -11,8 +10,7 @@ const testData = [
   { id: 4, type: 'switches', name: 'd name', url: 'abcd12345' },
 ]
 
-const SearchBar = ({ isDropdownOpen, setIsDropdownOpen }) => {
-  const router = useRouter()
+const Search = ({ isDropdownOpen, setIsDropdownOpen }) => {
   const ref = useRef([])
   const [inputValue, setInputValue] = useState('')
   const results = filterData(testData, inputValue)
@@ -38,21 +36,10 @@ const SearchBar = ({ isDropdownOpen, setIsDropdownOpen }) => {
     }
   }
 
-  const handleChange = (e) => {
+  const handleOnChange = (e) => {
     setInputValue(e.target.value)
     if (!!e.target.value && !isDropdownOpen) setIsDropdownOpen(true)
     if (!e.target.value && isDropdownOpen) setIsDropdownOpen(false)
-  }
-
-  const handleClick = () => {
-    if (!isDropdownOpen) setIsDropdownOpen(true)
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    router.push({ pathname: 'search', query: { q: inputValue } })
-
-    // TODO: Turn this function into async an include db call for searched query, but with fuzzy completionz
   }
 
   useEffect(() => {
@@ -73,22 +60,18 @@ const SearchBar = ({ isDropdownOpen, setIsDropdownOpen }) => {
 
   return (
     <div className="w-full gap-4 text-zinc-300 relative">
-      <div>
-        <form className="flex bg-zinc-800 rounded-md" onSubmit={handleSubmit}>
-          <input
-            className="flex-1 h-12 bg-zinc-800 focus:outline-none focus:placeholder:text-zinc-600 p-4 rounded-l-md text-lg tracking-wide shadow-md placeholder:font-normal placeholder:text-zinc-400"
-            id="search"
-            type="text"
-            placeholder="Search for parts"
-            ref={ref}
-            tabIndex={1}
-            onChange={(e) => handleChange(e)}
-            onFocus={handleFocus}
-            onClick={handleClick}
-            autoComplete="off"
-          />
-          <SearchButton text="Search" />
-        </form>
+      <div className="flex gap-2">
+        <input
+          className="flex-1 h-14 bg-zinc-800 focus:outline-none focus:placeholder:text-zinc-600 p-4 rounded-md text-lg tracking-wide shadow-md placeholder:font-normal placeholder:text-zinc-400"
+          id="search"
+          type="text"
+          placeholder="Search for parts"
+          ref={ref}
+          tabIndex={1}
+          onChange={(e) => handleOnChange(e)}
+          onFocus={() => handleFocus()}
+        />
+        <SearchButton text="Hello" />
       </div>
 
       {isDropdownOpen && (
@@ -102,4 +85,4 @@ const SearchBar = ({ isDropdownOpen, setIsDropdownOpen }) => {
   )
 }
 
-export default SearchBar
+export default Search

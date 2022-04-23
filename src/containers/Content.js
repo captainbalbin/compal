@@ -1,4 +1,3 @@
-import Filters from './Filters'
 import SearchBar from '../components/SearchBar'
 import { useState } from 'react'
 
@@ -15,7 +14,6 @@ const Content = () => {
         setIsDropdownOpen={toggleBgBlur}
         isDropdownOpen={isDropdownOpen}
       />
-      <Filters filterType="switch" isVisible={isDropdownOpen} />
     </div>
   )
 }

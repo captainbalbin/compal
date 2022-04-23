@@ -25,14 +25,17 @@
     "start": "next start",
     "prepare": "husky install",
     "db": "prisma studio",
-    "generate": "prisma generate",
-    "migrate": "prisma migrate dev --name init"
+    "db:build": "npm run db:generate && npm run db",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev --name init"
   },
   "dependencies": {
     "next": "^12.0.9",
+    "next-themes": "^0.1.1",
     "prisma": "^3.12.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-icons": "^4.3.1"
   },
   "devDependencies": {
     "@prisma/client": "^3.12.0",

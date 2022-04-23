@@ -2,7 +2,7 @@
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/captainbalbin/compal)
 
-Search, explore, and compare mechanihcal keyboard switches!Compal let's you find the switch you want, for the best price. 
+Search, explore, and compare mechanical keyboard switches! Compal let's you find the switch you want, for the best price. 
 
 ## Table of Content
 

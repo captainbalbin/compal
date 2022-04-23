@@ -77,6 +77,7 @@ for idx, item in enumerate(items):
                 desc_parent = desc_parent.find("div", class_="content")
                 desc = desc_parent.getText(strip=True)
             except:
+                desc = ""
                 print(f'No desc at url: {switch_url}')
         #########################################################
 
@@ -86,26 +87,31 @@ for idx, item in enumerate(items):
         try:
             brand = tableRows[tableNames.index("Brand")]
         except:
+            brand = ""
             print(f'No brand at url: {switch_url}')
 
         try:
             feedback = tableRows[tableNames.index("Feedback")]
         except:
+            feedback = ""
             print(f'No feedback at url: {switch_url}')
 
         try:
             weight = tableRows[tableNames.index("Spring Weight")]
         except:
+            weight = ""
             print(f'No weight at url: {switch_url}')
 
         try:
             travel = tableRows[tableNames.index("Travel")]
         except:
+            travel = ""
             print(f'No travel at url: {switch_url}')
 
         try:
             lubrication = tableRows[tableNames.index("Lubrication")]
         except:
+            lubrication = ""
             print(f'No lubrication at url: {switch_url}')
 
         sw = Switch(

@@ -24,5 +24,5 @@ The database can be viewed in directly edited with `npm run db`.
 
 ## Known Issue
 
-If you don't find the issue in the list below, please [add an issue with](https://github.com/captainbalbin/compal/issues). Remember to check the [Wiki](https://github.com/captainbalbin/compal/wiki) for how you can contribute.
+If you don't find the issue in the list below, please [add it as an issue](https://github.com/captainbalbin/compal/issues). Remember to check the [Wiki](https://github.com/captainbalbin/compal/wiki) for how you can contribute.
 

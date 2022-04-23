@@ -1,9 +1,8 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ContentWrapper from '../components/ContentWrapper'
-import SearchBar from '../components/SearchBar'
+import HeaderAlt from '../components/HeaderAlt'
 
 const Search = () => {
   const router = useRouter()
@@ -14,11 +13,8 @@ const Search = () => {
 
   return (
     <div className="flex flex-col items-center h-screen bg-zinc-900 text-zinc-100">
-      <Header />
-      <ContentWrapper>
-        <SearchBar />
-        {q}
-      </ContentWrapper>
+      <HeaderAlt />
+      <ContentWrapper>{q}</ContentWrapper>
       <Footer />
     </div>
   )

@@ -1,14 +1,14 @@
 import React from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import { PrismaClient } from '@prisma/client'
+// import { PrismaClient } from '@prisma/client'
 
-const prisma = new PrismaClient()
+// const prisma = new PrismaClient()
 
-export const getServerSideProps = async ({ params }) => {
-  const matchSwitch = await prisma.switch.findUnique({ where: { id: Number(params.id) } })
-  return { props: { matchSwitch } }
-}
+// export const getServerSideProps = async ({ params }) => {
+//   const matchSwitch = await prisma.switch.findUnique({ where: { id: Number(params.id) } })
+//   return { props: { matchSwitch } }
+// }
 
 const Switches = ({ matchSwitch }) => {
   return (

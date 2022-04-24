@@ -1,15 +1,23 @@
 import React from 'react'
 import Header from '../components/Header'
-import Content from '../containers/Content'
 import Footer from '../components/Footer'
+import ContentWrapper from '../components/ContentWrapper'
+import SearchBar from '../components/SearchBar'
+import PageWrapper from '../components/PageWrapper'
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center h-screen bg-zinc-900">
+    <PageWrapper>
       <Header />
-      <Content />
+      <ContentWrapper>
+        <SearchBar />
+      </ContentWrapper>
       <Footer />
-    </div>
+    </PageWrapper>
+
+    // <div className="flex flex-col items-center h-screen bg-zinc-900">
+
+    // </div>
   )
 }
 

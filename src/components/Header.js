@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { breakpoints } from '../utils/constants'
 
@@ -9,7 +8,7 @@ const Header = () => {
   return (
     <div className="w-full flex justify-center bg-zinc-900">
       <Link href="/" passHref>
-        <motion.div
+        <div
           layoutId="logo"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -18,7 +17,7 @@ const Header = () => {
           }`}
         >
           <h1>COMPA</h1>
-        </motion.div>
+        </div>
       </Link>
     </div>
   )

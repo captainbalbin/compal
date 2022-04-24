@@ -7,7 +7,7 @@ const ContentWrapper = ({ children }) => {
     <div
       className={`${
         breakpointMd ? 'w-full' : 'w-full'
-      } max-w-2xl h-1/2 mb-auto flex flex-col items-center justify-center`}
+      } max-w-2xl mb-auto flex flex-col flex-1 items-center justify-center`}
     >
       {children}
     </div>

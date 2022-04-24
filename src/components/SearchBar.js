@@ -1,6 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
-import { motion } from 'framer-motion'
 import ListItem from './ListItem'
 import filterData from '../utils/filterData'
 import SearchButton from './SearchButton'
@@ -71,7 +70,7 @@ const SearchBar = () => {
   }, [handleKeyDown])
 
   return (
-    <motion.div
+    <div
       layoutId="search"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -112,7 +111,7 @@ const SearchBar = () => {
           })}
         </div>
       )}
-    </motion.div>
+    </div>
   )
 }
 

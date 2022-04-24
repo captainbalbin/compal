@@ -2,14 +2,15 @@ import React from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import ContentWrapper from '../../components/ContentWrapper'
+import PageWrapper from '../../components/PageWrapper'
 
 const Switches = () => {
   return (
-    <div className="mb-auto flex flex-col items-center h-screen bg-zinc-900 text-zinc-100">
+    <PageWrapper>
       <Header />
       <ContentWrapper>hello</ContentWrapper>
       <Footer />
-    </div>
+    </PageWrapper>
   )
 }
 

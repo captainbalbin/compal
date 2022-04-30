@@ -70,12 +70,7 @@ const SearchBar = () => {
   }, [handleKeyDown])
 
   return (
-    <div
-      layoutId="search"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="w-full gap-4 text-zinc-300 relative"
-    >
+    <div className="w-full gap-4 text-zinc-300 relative">
       <div>
         <form
           className="flex place-items-center w-full bg-zinc-800 rounded-md"

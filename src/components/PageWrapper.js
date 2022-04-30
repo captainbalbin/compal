@@ -10,12 +10,12 @@ const PageWrapper = ({ children }) => {
     <div
       className={`flex flex-col items-center h-screen ${
         breakpointSm
-          ? 'pl-8 pr-8'
+          ? 'pl-4 pr-4'
           : breakpointMd
-          ? 'pl-16 pr-16'
+          ? 'pl-10 pr-10'
           : breakpointLg
-          ? 'pl-32 pr-32'
-          : 'pl-64 pr-64'
+          ? 'pl-24 pr-24'
+          : 'pl-48 pr-48'
       } bg-zinc-900 text-zinc-100`}
     >
       {children}

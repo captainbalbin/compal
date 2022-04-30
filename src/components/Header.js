@@ -9,14 +9,11 @@ const Header = () => {
     <div className="w-full flex justify-center bg-zinc-900">
       <Link href="/" passHref>
         <div
-          layoutId="logo"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className={`flex place-items-center bg-sky-700 text-zinc-100 font-footer rounded-md  hover:cursor-pointer mt-4 ${
+          className={`flex place-items-center text-zinc-100 font-footer rounded-md  hover:cursor-pointer mt-4 ${
             breakpointSm ? 'text-2xl p-2' : 'text-4xl p-4'
           }`}
         >
-          <h1>COMPA</h1>
+          <h1>Switchup</h1>
         </div>
       </Link>
     </div>

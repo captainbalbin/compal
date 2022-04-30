@@ -14,10 +14,6 @@ const Home = () => {
       </ContentWrapper>
       <Footer />
     </PageWrapper>
-
-    // <div className="flex flex-col items-center h-screen bg-zinc-900">
-
-    // </div>
   )
 }
 

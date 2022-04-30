@@ -1,27 +1,34 @@
 import Link from 'next/link'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { breakpoints } from '../utils/constants'
+import MenuButton from './MenuButton'
 import SearchBar from './SearchBar'
-import SearchButton from './SearchButton'
 
 const HeaderAlt = () => {
-  const breakpointLg = useMediaQuery(breakpoints.large)
-  const breakpointSm = useMediaQuery(breakpoints.small)
+  const breakpointMd = useMediaQuery(breakpoints.medium)
 
   return (
-    <div className="w-full p-4 flex justify-between place-items-center">
+    <div
+      className={`w-full gap-2 grid ${
+        breakpointMd
+          ? 'grid-rows-1 grid-flow-row place-items-center'
+          : 'grid-cols-4 grid-flow-col p-4'
+      }`}
+    >
       <Link href="/" passHref>
-        <div
-          layoutId="logo"
-          className="flex place-items-center bg-sky-700 text-zinc-100 font-footer rounded-md p-2 hover:cursor-pointer"
-        >
-          <h1 className="text-2xl">COMPA</h1>
+        <div className="flex place-items-center text-zinc-100 font-footer rounded-md p-2 hover:cursor-pointer">
+          <h1 className="text-2xl">Swup</h1>
         </div>
       </Link>
-      <div className={breakpointLg ? 'w-96' : 'w-1/2'}>
-        {breakpointSm ? <SearchButton /> : <SearchBar />}
+      <div className={`${breakpointMd ? 'w-full flex gap-2' : 'col-span-2'}`}>
+        <SearchBar />
+        {breakpointMd && <MenuButton />}
       </div>
-      <div />
+      {!breakpointMd && (
+        <div className="col-span-1 flex place-content-end">
+          <MenuButton />
+        </div>
+      )}
     </div>
   )
 }

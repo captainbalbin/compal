@@ -1,8 +1,8 @@
-# Compal
+# Switchup
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/captainbalbin/compal)
 
-Search, explore, and compare mechanical keyboard switches! Compal let's you find the switch you want, for the best price. 
+Search, explore, and compare mechanical keyboard switches! Switchup let's you find the switch you want, for the best price. 
 
 ## Table of Content
 
@@ -24,5 +24,5 @@ The database can be viewed in directly edited with `npm run db`.
 
 ## Known Issue
 
-If you don't find the issue in the list below, please [add it as an issue](https://github.com/captainbalbin/compal/issues). Remember to check the [Wiki](https://github.com/captainbalbin/compal/wiki) for how you can contribute.
+If you don't find the issue in the list below, please [add it as an issue](https://github.com/captainbalbin/switchup/issues). Remember to check the [Wiki](https://github.com/captainbalbin/switchup/wiki) for how you can contribute.
 

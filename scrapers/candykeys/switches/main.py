@@ -75,7 +75,7 @@ for idx, item in enumerate(items):
             try:
                 desc_parent = soup.find("div", class_="description")
                 desc_parent = desc_parent.find("div", class_="content")
-                desc = desc_parent.getText(strip=True)
+                desc = desc_parent.getText(strip=True, separator="\n")
             except:
                 desc = ""
                 print(f'No desc at url: {switch_url}')
@@ -94,7 +94,14 @@ for idx, item in enumerate(items):
             feedback = tableRows[tableNames.index("Feedback")]
         except:
             feedback = ""
-            print(f'No feedback at url: {switch_url}')
+            if [itm for itm in ["Linear", "linear"] if (itm in desc)]:
+                feedback = "Linear"
+            elif [itm for itm in ["Tactile", "tactile"] if (itm in desc)]:
+                feedback = "Tactile"
+            elif [itm for itm in ["Clicky", "clicky"] if (itm in desc)]:
+                feedback = "Clicky"
+            else:
+                print(f'No feedback at url: {switch_url}')
 
         try:
             weight = tableRows[tableNames.index("Spring Weight")]

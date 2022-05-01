@@ -1,19 +1,14 @@
 import React from 'react'
 import HeaderAlt from '../../components/HeaderAlt'
 import Footer from '../../components/Footer'
-import ContentWrapper from '../../components/ContentWrapper'
 import PageWrapper from '../../components/PageWrapper'
-import Overview from '../../components/Overview'
-import StoreList from '../../components/StoreList'
+import Product from '../../containers/Product'
 
 const Switches = () => {
   return (
-    <PageWrapper>
+    <PageWrapper isStartPage={false}>
       <HeaderAlt />
-      <ContentWrapper>
-        <Overview />
-        <StoreList />
-      </ContentWrapper>
+      <Product />
       <Footer />
     </PageWrapper>
   )

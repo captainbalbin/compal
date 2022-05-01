@@ -1,4 +1,4 @@
 {
   "extends": ["next/core-web-vitals", "eslint:recommended"],
-  "rules": { "no-console": 2, "react/display-name": 0 }
+  "rules": { "no-console": "error", "react/display-name": "off", "no-unused-vars": "warn" }
 }

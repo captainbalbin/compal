@@ -1,14 +1,19 @@
 import React from 'react'
-import Header from '../../components/Header'
+import HeaderAlt from '../../components/HeaderAlt'
 import Footer from '../../components/Footer'
 import ContentWrapper from '../../components/ContentWrapper'
 import PageWrapper from '../../components/PageWrapper'
+import Overview from '../../components/Overview'
+import StoreList from '../../components/StoreList'
 
 const Switches = () => {
   return (
     <PageWrapper>
-      <Header />
-      <ContentWrapper>hello</ContentWrapper>
+      <HeaderAlt />
+      <ContentWrapper>
+        <Overview />
+        <StoreList />
+      </ContentWrapper>
       <Footer />
     </PageWrapper>
   )

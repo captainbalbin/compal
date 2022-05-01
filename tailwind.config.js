@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      body: ['"Fira Sans"', 'sans-serif'],
+      body: ['"Proxima Nova"', 'sans-serif'],
       footer: ['"Cubano"', 'sans-serif'],
     },
     height: (theme) => ({

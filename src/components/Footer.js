@@ -6,11 +6,12 @@ const Footer = () => {
   const breakpointSm = useMediaQuery(breakpoints.small)
 
   return (
-    <div className="flex items-center justify-center p-4 text-zinc-500 gap-4">
+    <div className="flex items-center justify-center p-4 text-zinc-500 gap-2">
       <p>Copyright © 2022</p>
       <Link href="https://github.com/captainbalbin/compal" passHref>
-        <p className="font-footer cursor-pointer hover:text-zinc-400">captainbalbin</p>
+        <p className="font-footer cursor-pointer hover:text-zinc-400">Switchup</p>
       </Link>
+      |
       {!breakpointSm && (
         <div>
           <div className="flex gap-1">

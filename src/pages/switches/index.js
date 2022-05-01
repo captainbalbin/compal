@@ -1,13 +1,13 @@
 import React from 'react'
-import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import ContentWrapper from '../../components/ContentWrapper'
 import PageWrapper from '../../components/PageWrapper'
+import HeaderAlt from '../../components/header/HeaderAlt'
 
 const Switches = () => {
   return (
     <PageWrapper>
-      <Header />
+      <HeaderAlt />
       <ContentWrapper>hello</ContentWrapper>
       <Footer />
     </PageWrapper>

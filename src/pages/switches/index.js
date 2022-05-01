@@ -2,7 +2,7 @@ import React from 'react'
 import Footer from '../../components/Footer'
 import ContentWrapper from '../../components/ContentWrapper'
 import PageWrapper from '../../components/PageWrapper'
-import HeaderAlt from '../../components/header/HeaderAlt'
+import HeaderAlt from '../../components/HeaderAlt'
 
 const Switches = () => {
   return (

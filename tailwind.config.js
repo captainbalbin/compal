@@ -3,6 +3,12 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      colors: {
+        'rating-1': '#e76c53',
+        'rating-2': '#efd077',
+        'rating-3': '#26948b',
+        'rating-4': '#00fca8',
+      },
       screens: {
         sm: '600px',
         md: '900px',

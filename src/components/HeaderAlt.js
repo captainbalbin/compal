@@ -11,7 +11,7 @@ const HeaderAlt = () => {
     <div
       className={`w-full max-w-7xl gap-4 grid ${
         breakpointMd
-          ? 'grid-rows-1 grid-flow-row place-items-center mb-8 mt-4'
+          ? 'grid-rows-1 grid-flow-row place-items-center p-4'
           : 'grid-cols-4 grid-flow-col p-4'
       }`}
     >

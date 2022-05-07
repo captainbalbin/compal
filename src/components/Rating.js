@@ -48,11 +48,11 @@ const Rating = ({ entity, size }) => {
     return (
       <div className="flex items-center gap-1">
         <div className="flex">
-          {stars.map((star) =>
+          {stars.map((star, i) =>
             star ? (
-              <AiFillStar size={calcIconSize(size)} />
+              <AiFillStar key={i} size={calcIconSize(size)} />
             ) : (
-              <AiOutlineStar size={calcIconSize(size)} />
+              <AiOutlineStar key={i} size={calcIconSize(size)} />
             )
           )}
         </div>

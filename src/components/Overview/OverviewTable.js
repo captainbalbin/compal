@@ -1,7 +1,7 @@
-const OverviewTable = ({ product, type }) => {
+const OverviewTable = ({ product }) => {
   return (
     <div className="flex">
-      <table className="table-auto bg-zinc-900 text-zinc-200 text-sm rounded-md w-full">
+      <table className="table-auto bg-zinc-800 bg-opacity-30 text-zinc-200 text-sm rounded-md md:w-80 w-full">
         <tbody>
           {product.map((param, i) => {
             return (

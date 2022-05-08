@@ -13,11 +13,6 @@
     font-family: 'Cubano';
     src: url('../public/fonts/cubano/regular.otf');
   }
-  h1 {
-    font-family: 'Proxima Nova', sans-serif;
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
   p {
     font-size: 0.875rem /* 14px */;
     line-height: 1.25rem /* 20px */;

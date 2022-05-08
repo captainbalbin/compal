@@ -5,9 +5,13 @@ module.exports = {
     extend: {
       colors: {
         'rating-1': '#e76c53',
+        'bg-rating-1': '#e76c5350',
         'rating-2': '#efd077',
+        'bg-rating-2': '#efd07750',
         'rating-3': '#26948b',
+        'bg-rating-3': '#26948b50',
         'rating-4': '#00fca8',
+        'bg-rating-4': '#00fca850',
       },
       screens: {
         sm: '600px',

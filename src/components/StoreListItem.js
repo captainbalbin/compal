@@ -11,7 +11,7 @@ const StoreListItem = ({ store }) => {
       >
         <div className="flex w-full gap-4 items-center">
           <div className="bg-sky-700 w-16 h-16 rounded-md "></div>
-          <div className="p-2">
+          <div className="flex gap-2 items-center">
             {store.name}
             {store.rating && <Rating entity={store} size="small" />}
           </div>

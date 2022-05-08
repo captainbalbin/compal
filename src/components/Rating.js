@@ -1,53 +1,30 @@
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
+import {
+  calcIconSize,
+  calcRatingBgColor,
+  calcRatingTextColor,
+  calcTextSize,
+} from '../utils/calculations'
+import { AiFillStar } from 'react-icons/ai'
 
 /**
  * @param {{size: "small" | "medium" | "large"}} size
  * @param {entity: object} entity
  */
 const Rating = ({ entity, size }) => {
-  const calcIconSize = (size) => {
-    switch (size) {
-      case 'small':
-        return 14
-      case 'medium':
-        return 16
-      case 'large':
-        return 18
-      default:
-        return 16
-    }
-  }
+  const generateRating = (rating) => {
+    // let stars = []
 
-  const calcTextSize = (size) => {
-    switch (size) {
-      case 'small':
-        return 'text-sm'
-      case 'medium':
-        return 'text-base'
-      case 'large':
-        return 'text-lg'
-      default:
-        return 'text-base'
-    }
-  }
-
-  const calcTextColor = (rating) => {
-    if (rating >= 4.0) return 'text-rating-4'
-    if (rating >= 3.0) return 'text-rating-3'
-    if (rating >= 2.0) return 'text-rating-2'
-    if (rating >= 1.0) return 'text-rating-1'
-  }
-
-  const generateStars = (rating) => {
-    let stars = []
-
-    for (let i = 1; i <= 5; i++) {
-      i <= rating ? stars.push(true) : stars.push(false)
-    }
+    // for (let i = 1; i <= 5; i++) {
+    //   i <= rating ? stars.push(true) : stars.push(false)
+    // }
 
     return (
-      <div className="flex items-center gap-1">
-        <div className="flex">
+      <div
+        className={`${calcRatingBgColor(
+          rating
+        )} bg-opacity-25 p-0.5 pl-1 pr-1 rounded-md flex items-center gap-1`}
+      >
+        {/* <div className="flex">
           {stars.map((star, i) =>
             star ? (
               <AiFillStar key={i} size={calcIconSize(size)} />
@@ -55,15 +32,20 @@ const Rating = ({ entity, size }) => {
               <AiOutlineStar key={i} size={calcIconSize(size)} />
             )
           )}
-        </div>
-        <h5 className={`${calcTextColor(rating)} ${calcTextSize(size)}`}>
-          {rating ? parseFloat(rating).toFixed(1) : '-'}
+        </div> */}
+        <h5 className={`${calcRatingTextColor(rating)} ${calcTextSize(size)}`}>
+          {rating ? parseFloat(rating).toFixed(1) : ''}
         </h5>
+        <AiFillStar size={calcIconSize(size)} />
       </div>
     )
   }
 
-  return <div className="hover:bg-zinc-700">{generateStars(entity.rating)}</div>
+  return (
+    entity.rating && (
+      <div className="hover:bg-zinc-700 flex w-0">{generateRating(entity.rating)}</div>
+    )
+  )
 }
 
 export default Rating

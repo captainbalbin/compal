@@ -24,15 +24,12 @@ const OverviewMobile = ({ product, details }) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-row gap-2">
+        <div className="flex sm:flex-row flex-col gap-2">
           <div className="w-full flex flex-col gap-4">
-            <p className="text-zinc-300">
-              Official Gateron Distributor. Linear Switch. 50 Cn Actuation Force. 4mm Key Travel.
-              For RGB or LED Mounted Lighting. Transparent Casing. Plate Mount.
-            </p>
+            <p className="text-zinc-300">{product.description}</p>
           </div>
+          <OverviewTable details={details} />
         </div>
-        <OverviewTable details={details} />
       </div>
     </div>
   )

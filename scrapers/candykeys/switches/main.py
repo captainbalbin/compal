@@ -1,4 +1,5 @@
-from posixpath import sep
+#!/usr/bin/env python3
+
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -32,7 +33,10 @@ class Switch:
                  feedback='',
                  weight='',
                  travel='',
-                 lubrication=''):
+                 factoryLubed='',
+                 wierdPrice=False,
+                 wierdName=False
+                 ):
         self.url = url
         self.name = name
         self.desc = desc
@@ -41,7 +45,10 @@ class Switch:
         self.feedback = feedback
         self.weight = weight
         self.travel = travel
-        self.lubrication = lubrication
+        self.factoryLubed = factoryLubed
+        self.wierdPrice = wierdPrice
+        self.wierdName = wierdName
+        self.purchaseQuantity = 1
 
 
 #####################################################################################
@@ -56,16 +63,21 @@ items = soup.find_all(attrs={":category": '["switches"]'})
 output = []
 
 for idx, item in enumerate(items):
-    print(f'{idx}/{len(items)}')
+    print(f'{idx + 1}/{len(items)}')
     switch_url = item.get("url")
     try:
         r = requests.get(switch_url)
         soup = BeautifulSoup(r.text, 'html.parser')
 
-        name = soup.find("h1", class_="title m-b-2").getText()
+        name = soup.find("h1", class_="title m-b-2").getText().strip()
+
+        wierdName = bool(re.search('\(.*\)', name))
 
         price = soup.find("span", class_="price").getText()
         price = re.search('([0-9,]+).*€', price).group(1)
+        price = float(price.replace(',', '.'))
+
+        wierdPrice = price > 1
 
         # Desc is given in two flavours we try for both here
         try:
@@ -116,9 +128,9 @@ for idx, item in enumerate(items):
             print(f'No travel at url: {switch_url}')
 
         try:
-            lubrication = tableRows[tableNames.index("Lubrication")]
+            factoryLubed = tableRows[tableNames.index("Lubrication")]
         except:
-            lubrication = ""
+            factoryLubed = ""
             print(f'No lubrication at url: {switch_url}')
 
         sw = Switch(
@@ -130,7 +142,9 @@ for idx, item in enumerate(items):
             feedback,
             weight,
             travel,
-            lubrication
+            factoryLubed,
+            wierdPrice,
+            wierdName
         )
 
         output.append(json.dumps(sw.__dict__))

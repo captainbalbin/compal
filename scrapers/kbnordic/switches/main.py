@@ -21,7 +21,10 @@ class Switch:
                  feedback='',
                  weight='',
                  travel='',
-                 lubrication=''):
+                 factoryLubed='',
+                 wierdPrice=False,
+                 wierdName=False
+                 ):
         self.url = url
         self.name = name
         self.desc = desc
@@ -30,7 +33,10 @@ class Switch:
         self.feedback = feedback
         self.weight = weight
         self.travel = travel
-        self.lubrication = lubrication
+        self.factoryLubed = factoryLubed
+        self.wierdPrice = wierdPrice
+        self.wierdName = wierdName
+        self.purchaseQuantity = 10
 
 
 def waitForMainPage(driver):
@@ -76,6 +82,7 @@ def scrapeSwitchFrom(html, switch_url):
     try:
         price = soup.find("span", class_="twsPriceCurrent").getText()
         price = re.search('€\s*([0-9,.]+)', price).group(1)
+        price = float(price)
     except:
         price = ""
         print(f'No price at url: {switch_url}')

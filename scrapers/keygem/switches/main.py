@@ -15,8 +15,9 @@ class Switch:
                  price='',
                  feedback='',
                  weight='',
-                 travel='',
-                 lubrication=''):
+                 wierdPrice=False,
+                 wierdName=False
+                 ):
         self.url = url
         self.name = name
         self.desc = desc
@@ -24,8 +25,9 @@ class Switch:
         self.price = price
         self.feedback = feedback
         self.weight = weight
-        self.travel = travel
-        self.lubrication = lubrication
+        self.wierdPrice = wierdPrice
+        self.wierdName = wierdName
+        self.purchaseQuantity = 10
 
 
 def collectHrefs(soup):
@@ -63,10 +65,20 @@ def scrapeSwitchFrom(url):
     soup = BeautifulSoup(r.text, 'html.parser')
 
     name = soup.find("h1", class_="ProductMeta__Title Heading u-h2").getText()
+    name = name.replace(" / 10pcs", "").strip()
+
+    wierdName = "pcs" in name.lower() or "switch" in name.lower()
+
     brand = name.split(" ")[0]
 
     price = soup.find("span", class_="money").getText()
     price = re.search('€ ([0-9,]+)', price).group(1)
+    price = float(price.replace(",", "."))
+
+    if not wierdName:
+        price = price/10
+
+    wierdPrice = price > 1
 
     desc = soup.find(
         "div", class_="ProductMeta__Description").getText(separator="\n", strip=True)
@@ -107,7 +119,9 @@ def scrapeSwitchFrom(url):
                 brand,
                 price,
                 feedback,
-                weight
+                weight,
+                wierdPrice,
+                wierdName,
             ).__dict__)
         )
     return switches

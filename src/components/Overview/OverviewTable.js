@@ -23,24 +23,6 @@ const OverviewTable = ({ details }) => {
             <td>Factory lubed</td>
             <td>{details.factoryLubed ? 'Yes' : 'No'}</td>
           </tr>
-          {/* {Object.keys(details).map((key, i) => (
-            <tr key={i}>
-              <td
-                className={`${
-                  i === Object.keys(details).length - 1 ? '' : 'border-b'
-                } border-zinc-700 p-2`}
-              >
-                {key}
-              </td>
-              <td
-                className={`${
-                  i === Object.keys(details).length - 1 ? '' : 'border-b'
-                } border-zinc-700 p-2`}
-              >
-                {details[key].toString()}
-              </td>
-            </tr>
-          ))} */}
         </tbody>
       </table>
     </div>

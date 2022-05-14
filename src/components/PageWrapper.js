@@ -1,10 +1,6 @@
-const PageWrapper = ({ children, isStartPage }) => {
+const PageWrapper = ({ children }) => {
   return (
-    <div
-      className={`w-full min-w-min flex flex-col items-center ${
-        isStartPage ? 'h-screen' : 'min-h-screen'
-      } bg-zinc-900 text-zinc-100`}
-    >
+    <div className="w-full h-screen flex flex-col items-center bg-zinc-900 text-zinc-100">
       {children}
     </div>
   )

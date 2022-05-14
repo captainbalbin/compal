@@ -8,7 +8,7 @@ import SearchContainer from '../containers/SearchContainer'
 
 const Home = () => {
   return (
-    <PageWrapper isStartPage>
+    <PageWrapper>
       <Header />
       <ContentWrapper>
         <SearchContainer />

@@ -6,7 +6,7 @@ import Product from '../../containers/Product'
 
 const Switches = () => {
   return (
-    <PageWrapper isStartPage={false}>
+    <PageWrapper>
       <HeaderAlt />
       <Product />
       <Footer />

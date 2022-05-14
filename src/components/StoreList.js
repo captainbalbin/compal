@@ -7,7 +7,7 @@ const StoreList = ({ variant }) => {
   // const sortedStores = product.stores.slice().sort((a, b) => (a.price >= b.price ? 1 : -1))
 
   return (
-    <div className="row-span-3 w-full max-w-7xl grid overflow-hidden gap-4 p-4">
+    <div className="row-span-3 w-full max-w-6xl grid overflow-hidden gap-4 p-4">
       {variant.vendors.map((vendor) => (
         <StoreListItem key={vendor.name} store={vendor} />
       ))}

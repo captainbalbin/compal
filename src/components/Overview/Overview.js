@@ -7,17 +7,16 @@ import Variant from './Variant'
 
 const Overview = ({ product, details }) => {
   const breakpointMd = useMediaQuery(breakpoints.medium)
-  const breakpointLg = useMediaQuery(breakpoints.large)
 
   return (
-    <div className="w-full flex md:flex-row flex-col justify-center bg-zinc-900">
-      <div className="md:flex w-full gap-8 max-w-7xl p-4">
+    <div className="w-full flex md:flex-row flex-col justify-center bg-zinc-700 bg-opacity-20">
+      <div className="md:flex w-full gap-8 max-w-6xl p-4">
         <div className="flex gap-8 p-4">
           <Image
             src="https://cdn.shopify.com/s/files/1/0295/3245/4956/products/CHERRY_MX3A-11NN_01_600x.png?v=1613505375"
             alt="Switch"
-            height={breakpointMd ? 144 : breakpointLg ? 224 : 224}
-            width={breakpointMd ? 144 : breakpointLg ? 224 : 224}
+            height={144}
+            width={144}
             layout={'fixed'}
           />
           {breakpointMd && <Heading product={product} />}
@@ -25,12 +24,12 @@ const Overview = ({ product, details }) => {
         <div className="flex flex-row gap-8 w-full">
           <div className="w-full flex flex-col gap-4">
             {!breakpointMd && <Heading product={product} />}
-            <p className="text-zinc-300">{product.description}</p>
             <div className="flex gap-2">
               {product.variants.map((variant) => (
                 <Variant key={variant.id} variant={variant.id} />
               ))}
             </div>
+            <p className="text-zinc-300">{product.description}</p>
           </div>
           <OverviewTable details={details} />
         </div>

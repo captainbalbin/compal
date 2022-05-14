@@ -60,7 +60,7 @@ const Product = () => {
   // const details = variants.filter((v1) => product.variants.find((v2) => v1.url === v2.url))
 
   return (
-    <div className="flex-1 w-full flex flex-col place-items-center bg-zinc-900 bg-opacity-25">
+    <div className="flex-1 w-full flex flex-col place-items-center bg-zinc-900">
       {breakpointMd ? (
         <OverviewMobile product={product} details={details} />
       ) : (

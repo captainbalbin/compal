@@ -8,9 +8,9 @@ const HeaderAlt = () => {
   const breakpointMd = useMediaQuery(breakpoints.medium)
 
   return (
-    <div className="w-full flex justify-center border-b border-zinc-700">
+    <div className="w-full flex justify-center">
       <div
-        className={`w-full max-w-7xl gap-4 grid ${
+        className={`w-full max-w-6xl gap-4 grid ${
           breakpointMd
             ? 'grid-rows-1 grid-flow-row place-items-center p-4'
             : 'grid-cols-4 grid-flow-col p-4'

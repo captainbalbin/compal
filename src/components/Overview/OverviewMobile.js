@@ -5,7 +5,7 @@ import Variant from './Variant'
 
 const OverviewMobile = ({ product, details }) => {
   return (
-    <div className="w-full flex md:flex-row flex-col justify-center bg-zinc-900">
+    <div className="w-full flex md:flex-row flex-col justify-center bg-zinc-700 bg-opacity-20">
       <div className="flex flex-col gap-4 max-w-7xl p-4">
         <div className="flex gap-8 p-4">
           <Image
@@ -25,9 +25,11 @@ const OverviewMobile = ({ product, details }) => {
           </div>
         </div>
         <div className="flex sm:flex-row flex-col gap-2">
-          <div className="w-full flex flex-col gap-4">
-            <p className="text-zinc-300">{product.description}</p>
-          </div>
+          {product.description && (
+            <div className="w-full flex flex-col gap-4">
+              <p className="text-zinc-300">{product.description}</p>
+            </div>
+          )}
           <OverviewTable details={details} />
         </div>
       </div>

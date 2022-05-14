@@ -17,4 +17,10 @@
     font-size: 0.875rem /* 14px */;
     line-height: 1.25rem /* 20px */;
   }
+  tr {
+    border-bottom: 1px solid rgba(63, 63, 70);
+  }
+  td {
+    padding: 0.5rem;
+  }
 }

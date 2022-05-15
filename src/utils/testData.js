@@ -1,6 +1,6 @@
 export const testData = [
   {
-    id: 'aaa',
+    id: 'gateron-yellow',
     name: 'Gateron Yellow',
     brand: 'Gateron',
     description:
@@ -8,7 +8,7 @@ export const testData = [
     variants: [{ id: '55g' }, { id: '63.5g' }, { id: '68g' }],
   },
   {
-    id: 'bbb',
+    id: 'cherry-mx-brown',
     name: 'Cherry MX Brown',
     brand: 'Cherry',
     description:
@@ -16,7 +16,7 @@ export const testData = [
     variants: [{ id: '62g' }, { id: '67g' }],
   },
   {
-    id: 'ccc',
+    id: 'tecsee-carrot',
     name: 'Tecsee Carrot',
     brand: 'Tecsee',
     description:

@@ -7,13 +7,13 @@ const SearchListItem = ({ item, setIsDropdownOpen }) => {
 
   const handleClick = () => {
     setIsDropdownOpen(false)
-    router.push(`/switches/${item.id}`)
+    router.push({ pathname: `/switches/${item.id}`, query: `variant=${item.variants[0].id}` })
   }
 
   const handleKeyPress = () => {
     if (enterPress) {
       setIsDropdownOpen(false)
-      router.push(`/switches/${item.id}`)
+      router.push({ pathname: `/switches/${item.id}`, query: `variant=${item.variants[0].id}` })
     }
   }
 

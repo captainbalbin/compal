@@ -4,15 +4,6 @@ import StoreList from '../components/StoreList'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { breakpoints } from '../utils/constants'
 
-const product = {
-  id: 'jsakld1231',
-  name: 'Gateron Yellow',
-  brand: 'Gateron',
-  description:
-    '- Official Gateron Distributor\n- Linear Switch\n- 50 Cn Actuation Force\n- 4mm Key Travel\n- For RGB or LED Mounted Lighting\n- Transparent Casing\n- Plate Mount',
-  variants: [{ id: '55g' }, { id: '63.5g' }, { id: '68g' }],
-}
-
 const details = {
   id: '55g',
   actuation: '55g',
@@ -54,10 +45,8 @@ const details = {
   ],
 }
 
-const Product = () => {
+const Product = ({ product }) => {
   const breakpointMd = useMediaQuery(breakpoints.medium)
-
-  // const details = variants.filter((v1) => product.variants.find((v2) => v1.url === v2.url))
 
   return (
     <div className="flex-1 w-full flex flex-col place-items-center bg-zinc-900">

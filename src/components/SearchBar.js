@@ -59,7 +59,12 @@ const SearchBar = ({ isDropdownOpen, setIsDropdownOpen, inputValue, setInputValu
   }, [handleKeyDown])
 
   return (
-    <form className="flex place-items-center w-full bg-zinc-800 rounded-md" onSubmit={handleSubmit}>
+    <form
+      className={`flex place-items-center w-full border-b ${
+        isDropdownOpen ? 'rounded-t-md border-zinc-700' : 'rounded-md border-transparent'
+      } bg-zinc-800`}
+      onSubmit={handleSubmit}
+    >
       <input
         className="w-full h-12 bg-zinc-800 focus:outline-none focus:placeholder:text-zinc-600 p-4 rounded-l-md text-md tracking-wide shadow-sm placeholder:text-zinc-500 row-span-1"
         id="search"
@@ -70,6 +75,7 @@ const SearchBar = ({ isDropdownOpen, setIsDropdownOpen, inputValue, setInputValu
         onFocus={handleFocus}
         onBlur={handleFocus}
         autoComplete="off"
+        tabIndex={-1}
       />
       {!breakpointSm && <SearchShortcut inFocus={inFocus} />}
 

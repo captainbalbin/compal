@@ -9,7 +9,7 @@ const Overview = ({ product, details }) => {
   const breakpointMd = useMediaQuery(breakpoints.medium)
 
   return (
-    <div className="w-full flex md:flex-row flex-col justify-center bg-zinc-700 bg-opacity-20">
+    <div className="w-full flex md:flex-row flex-col justify-center bg-zinc-700 bg-opacity-20 p-4">
       <div className="md:flex w-full gap-8 max-w-6xl p-4">
         <div className="flex gap-8 p-4">
           <Image

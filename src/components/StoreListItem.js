@@ -8,6 +8,7 @@ const StoreListItem = ({ store }) => {
       <div
         key={store.name}
         className="w-full bg-zinc-700 bg-opacity-30 flex gap-4 rounded-md overflow-hidden hover:cursor-pointer hover:bg-zinc-700 hover:bg-opacity-25"
+        tabIndex={1}
       >
         <div className="flex w-full gap-4 items-center">
           <div className="bg-sky-700 w-16 h-16 rounded-md "></div>

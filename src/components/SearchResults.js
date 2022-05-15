@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import filterData from '../utils/filterData'
 import { testData } from '../utils/testData'
+import SearchList from './SearchList'
 
 const SearchResults = () => {
   const router = useRouter()
@@ -15,16 +16,8 @@ const SearchResults = () => {
   }, [query, isReady, setResults])
 
   return (
-    <div>
-      <div>query: {query.q}</div>
-      <div>
-        results:
-        <ul>
-          {results.map((result) => (
-            <li key={result.id}>{result.name}</li>
-          ))}
-        </ul>
-      </div>
+    <div className="w-full max-w-6xl h-full">
+      <SearchList expanded items={results} />
     </div>
   )
 }

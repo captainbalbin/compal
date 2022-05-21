@@ -44,3 +44,6 @@ yarn-error.log*
 
 # Scarping
 scrapers/**/*.json
+
+# Python
+__pycache__

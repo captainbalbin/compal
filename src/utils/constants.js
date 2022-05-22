@@ -5,3 +5,9 @@ export const breakpoints = {
   large: '1200',
   extraLarge: '1536',
 }
+
+export const VARIANT = {
+  EURO: '€',
+  PER_SWITCH: '/ switch',
+  PURCHASE_QUANTITY: 'Purchase Quantity',
+}

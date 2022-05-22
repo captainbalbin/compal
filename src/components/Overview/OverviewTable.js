@@ -5,7 +5,7 @@ const OverviewTable = ({ details }) => {
         <tbody>
           <tr>
             <td>Feedback</td>
-            <td>{details.feedback ?? ''}</td>
+            <td>{details.feedback ?? '-'}</td>
           </tr>
           <tr>
             <td>Actuation</td>
@@ -21,7 +21,7 @@ const OverviewTable = ({ details }) => {
           </tr>
           <tr className="border-b-0">
             <td>Factory lubed</td>
-            <td>{details.factoryLubed ? 'Yes' : 'No'}</td>
+            <td>{details.factoryLubed ?? '-'}</td>
           </tr>
         </tbody>
       </table>

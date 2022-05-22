@@ -21,7 +21,9 @@ const SearchContainer = () => {
         />
       </div>
 
-      {isDropdownOpen && <SearchList fixed items={results} setIsDropdownOpen={setIsDropdownOpen} />}
+      {isDropdownOpen && (
+        <SearchList absolute items={results} setIsDropdownOpen={setIsDropdownOpen} />
+      )}
     </div>
   )
 }

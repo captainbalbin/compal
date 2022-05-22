@@ -12,7 +12,7 @@ export const getStaticPaths = async () => {
 
   const paths = data.map((item) => ({
     params: {
-      id: item.id.toString(),
+      id: item.productId.toString(),
     },
   }))
 
@@ -24,7 +24,7 @@ export const getStaticProps = async ({ params }) => {
   const data = testData // TODO: Replace with fetch of real data, ish as above but adding the id
 
   // const details = testData.variants.filter((v1) => product.variants.find((v2) => v1.url === v2.url))
-  const product = data.find((item) => item.id === id)
+  const product = data.find((item) => item.productId === id)
 
   return { props: { product } }
 }

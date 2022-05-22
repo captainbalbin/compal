@@ -16,8 +16,19 @@ const SearchResults = () => {
   }, [query, isReady, setResults])
 
   return (
-    <div className="w-full max-w-6xl h-full">
-      <SearchList expanded items={results} />
+    <div
+      className={`w-full max-w-6xl h-full flex flex-col p-4 gap-2 ${
+        !results.length ? 'items-center' : ''
+      }`}
+    >
+      {results.length ? (
+        <p className="text-zinc-500">
+          Showing {results.length} {results.length === 1 ? 'result' : 'results'}
+        </p>
+      ) : (
+        <p className="font-bold">No results found</p>
+      )}
+      <SearchList items={results} />
     </div>
   )
 }

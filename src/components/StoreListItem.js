@@ -11,7 +11,7 @@ const StoreListItem = ({ vendor }) => {
     <a href={`${vendor.url}`} target="_blank" rel="noopener noreferrer">
       <div
         key={vendor.name}
-        className="w-full bg-zinc-700 bg-opacity-30 flex gap-4 rounded-md overflow-hidden hover:cursor-pointer hover:bg-zinc-700 hover:bg-opacity-25"
+        className="w-full bg-zinc-700 bg-opacity-30 flex rounded-md overflow-hidden hover:cursor-pointer hover:bg-zinc-700 hover:bg-opacity-25"
         tabIndex={1}
       >
         <div className="flex w-full gap-4 items-center">
@@ -21,7 +21,7 @@ const StoreListItem = ({ vendor }) => {
             {vendor.rating && <Rating entity={vendor} size="small" />}
           </div>
         </div>
-        <div className="flex flex-row items-center mr-4 gap-8">
+        <div className="flex flex-row items-center mr-4 sm:gap-8 gap-4">
           {vendor.purchaseQuantity && !breakpointSm && (
             <div className="flex flex-row items-center whitespace-nowrap">
               <p className="text-zinc-400">
@@ -32,13 +32,13 @@ const StoreListItem = ({ vendor }) => {
           {vendor.shipping && (
             <div className="flex gap-1 text-zinc-400">
               <MdLocalShipping />
-              <p className="text-xs font-semibold">{vendor.shipping}</p>
+              <p className="text-xs font-semibold">{parseFloat(vendor.shipping).toFixed(2)}</p>
             </div>
           )}
           <div className="flex items-center gap-2 whitespace-nowrap">
             <p className="font-bold text-base">
               {VARIANT.EURO}
-              {vendor.price}
+              {parseFloat(vendor.price).toFixed(2)}
             </p>
             <p className="font-light text-zinc-400">{VARIANT.PER_SWITCH}</p>
           </div>

@@ -1,7 +1,7 @@
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { breakpoints } from '../utils/constants'
 import Search from '../containers/Search'
-import MenuButton from './MenuButton'
+// import MenuButton from './MenuButton'
 import Logo from './Logo'
 
 const HeaderAlt = () => {
@@ -25,13 +25,13 @@ const HeaderAlt = () => {
           }`}
         >
           <Search />
-          {breakpointMd && <MenuButton />}
+          {/* {breakpointMd && <MenuButton />} */}
         </div>
-        {!breakpointMd && (
+        {/* {!breakpointMd && (
           <div className="flex place-content-end">
             <MenuButton />
           </div>
-        )}
+        )} */}
       </div>
     </div>
   )

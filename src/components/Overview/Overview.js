@@ -7,7 +7,6 @@ import Variant from './Variant'
 import Rating from '../Rating'
 
 const Overview = ({ product, currentVariant, onClick }) => {
-  const breakpointSm = useMediaQuery(breakpoints.small)
   const breakpointMd = useMediaQuery(breakpoints.medium)
 
   return (
@@ -17,8 +16,8 @@ const Overview = ({ product, currentVariant, onClick }) => {
           <Image
             src="https://cdn.shopify.com/s/files/1/0295/3245/4956/products/CHERRY_MX3A-11NN_01_600x.png?v=1613505375"
             alt="Switch"
-            height={breakpointSm ? 112 : 144}
-            width={breakpointSm ? 112 : 144}
+            height={144}
+            width={144}
             layout={'fixed'}
           />
           {breakpointMd && (
@@ -55,11 +54,8 @@ const Overview = ({ product, currentVariant, onClick }) => {
                 <p className="text-zinc-200">{currentVariant.description}</p>
               </Heading>
             )}
-            {breakpointMd && !breakpointSm && (
-              <p className="text-zinc-200">{currentVariant.description}</p>
-            )}
+            {breakpointMd && <p className="text-zinc-200">{currentVariant.description}</p>}
           </div>
-          {breakpointSm && <p className="text-zinc-200">{currentVariant.description}</p>}
           <OverviewTable details={currentVariant} />
         </div>
       </div>

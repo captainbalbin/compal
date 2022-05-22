@@ -2,9 +2,9 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import filterData from '../utils/filterData'
 import { testData } from '../utils/testData'
-import SearchList from './SearchList'
+import SearchList from '../components/SearchList'
 
-const SearchResults = () => {
+const Results = () => {
   const router = useRouter()
   const [results, setResults] = useState([])
   const { query, isReady } = router
@@ -28,9 +28,9 @@ const SearchResults = () => {
       ) : (
         <p className="font-bold">No results found</p>
       )}
-      <SearchList items={results} />
+      <SearchList setIsDropdownOpen={() => {}} items={results} />
     </div>
   )
 }
 
-export default SearchResults
+export default Results

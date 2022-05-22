@@ -9,7 +9,6 @@ const SearchListItem = ({ item, setIsDropdownOpen }) => {
     setIsDropdownOpen(false)
     router.push({
       pathname: `/switches/${item.productId}`,
-      query: `variant=${item.id}`,
     })
   }
 
@@ -18,7 +17,6 @@ const SearchListItem = ({ item, setIsDropdownOpen }) => {
       setIsDropdownOpen(false)
       router.push({
         pathname: `/switches/${item.productId}`,
-        query: `variant=${item.variants[0].id}`,
       })
     }
   }

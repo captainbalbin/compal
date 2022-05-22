@@ -3,14 +3,14 @@ import Footer from '../components/Footer'
 import ContentWrapper from '../components/ContentWrapper'
 import HeaderAlt from '../components/HeaderAlt'
 import PageWrapper from '../components/PageWrapper'
-import SearchResults from '../components/SearchResults'
+import Results from '../containers/Results'
 
 const Search = () => {
   return (
     <PageWrapper>
       <HeaderAlt />
       <ContentWrapper>
-        <SearchResults />
+        <Results />
       </ContentWrapper>
       <Footer />
     </PageWrapper>

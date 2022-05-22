@@ -17,7 +17,7 @@ export const testData = [
         vendors: [
           {
             url: 'https://keygem.store/collections/switches/products/aliaz-silent-switch-60g-10-pcs',
-            name: 'keygem',
+            name: 'Keygem',
             price: 0.6,
             purchaseQuantity: 10,
           },
@@ -35,9 +35,15 @@ export const testData = [
         vendors: [
           {
             url: 'https://keygem.store/collections/switches/products/aliaz-silent-switch-70g-10',
-            name: 'keygem',
+            name: 'Keygem',
             price: 0.6,
             purchaseQuantity: 10,
+          },
+          {
+            url: 'https://keygem.store/collections/switches/products/aliaz-silent-switch-70g-10',
+            name: 'CandyKeys',
+            price: 0.7,
+            purchaseQuantity: 1,
           },
         ],
       },
@@ -60,9 +66,9 @@ export const testData = [
         vendors: [
           {
             url: 'https://keygem.store/collections/switches/products/aliaz-silent-switch-60g-10-pcs',
-            name: 'keygem',
-            price: 0.6,
-            purchaseQuantity: 10,
+            name: 'CandyKeys',
+            price: 0.5,
+            purchaseQuantity: 1,
           },
         ],
       },
@@ -75,10 +81,10 @@ export const testData = [
         travelDistance: null,
         vendors: [
           {
-            url: 'https://keygem.store/collections/switches/products/aliaz-silent-switch-70g-10',
-            name: 'keygem',
-            price: 0.6,
-            purchaseQuantity: 10,
+            url: 'https://Keygem.store/collections/switches/products/aliaz-silent-switch-70g-10',
+            name: 'CandyKeys',
+            price: 0.5,
+            purchaseQuantity: 1,
           },
         ],
       },

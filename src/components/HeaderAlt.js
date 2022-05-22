@@ -1,6 +1,6 @@
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { breakpoints } from '../utils/constants'
-import SearchContainer from '../containers/SearchContainer'
+import Search from '../containers/Search'
 import MenuButton from './MenuButton'
 import Logo from './Logo'
 
@@ -24,7 +24,7 @@ const HeaderAlt = () => {
             breakpointMd ? 'w-full flex gap-2' : 'col-span-2'
           }`}
         >
-          <SearchContainer />
+          <Search />
           {breakpointMd && <MenuButton />}
         </div>
         {!breakpointMd && (

@@ -1,24 +1,25 @@
-import { useState } from 'react'
-import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
 import Overview from '../components/Overview/Overview'
 import OverviewMobile from '../components/Overview/OverviewMobile'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { breakpoints } from '../utils/constants'
+import StoreListItem from '../components/StoreListItem'
+import StoreList from '../components/StoreList'
 
 const Product = ({ product }) => {
   const [currentVariant, setCurrentVariant] = useState(product.variants[0])
   const breakpointMd = useMediaQuery(breakpoints.medium)
-  const router = useRouter()
-  const { query } = router
 
   const handleClick = (e) => {
-    if (currentVariant !== e.target.value) {
+    if (currentVariant.id !== e.target.value) {
       const selectedVariant = product.variants.find((variant) => variant.id === e.target.value)
       setCurrentVariant(selectedVariant)
-
-      router.push({ pathname: query.id, query: `variant=${e.target.value}` })
     }
   }
+
+  useEffect(() => {
+    setCurrentVariant(product.variants[0])
+  }, [product])
 
   return (
     <div className="flex-1 w-full flex flex-col place-items-center bg-zinc-900">
@@ -27,6 +28,11 @@ const Product = ({ product }) => {
       ) : (
         <Overview product={product} currentVariant={currentVariant} onClick={handleClick} />
       )}
+      <StoreList>
+        {currentVariant.vendors.map((vendor) => (
+          <StoreListItem key={vendor.name} vendor={vendor} />
+        ))}
+      </StoreList>
     </div>
   )
 }

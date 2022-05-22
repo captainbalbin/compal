@@ -4,14 +4,14 @@ import Footer from '../components/Footer'
 import ContentWrapper from '../components/ContentWrapper'
 import PageWrapper from '../components/PageWrapper'
 import ExploreSection from '../components/ExploreSection'
-import SearchContainer from '../containers/SearchContainer'
+import Search from '../containers/Search'
 
 const Home = () => {
   return (
     <PageWrapper>
       <Header />
       <ContentWrapper>
-        <SearchContainer />
+        <Search />
         <ExploreSection />
       </ContentWrapper>
       <Footer />

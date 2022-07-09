@@ -26,6 +26,14 @@ const Search = () => {
     setInputValue(e.target.value)
     if (e.target.value && !isDropdownOpen) setIsDropdownOpen(true)
     if (!e.target.value && isDropdownOpen) setIsDropdownOpen(false)
+
+    fetch('http://localhost:3000/api/autocomplete', {
+      method: 'POST',
+      body: JSON.stringify({ query: e.target.value }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
   }
 
   const handleSubmit = (event) => {

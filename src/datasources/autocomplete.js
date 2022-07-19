@@ -5,7 +5,7 @@ export async function autcompleteQuery(query) {
     return []
   }
 
-  const db = await getDbConnection('products', 'switches')
+  const db = await getDbConnection('switches')
   const res = await db.aggregate([
     {
       $search: {
